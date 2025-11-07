@@ -1,0 +1,1193 @@
+@import "tailwindcss";
+
+/* === BASE LAYOUT === */
+
+.full-bleed {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow-x: clip;
+}
+
+/* === CSS VARIABLES === */
+:root {
+  --primary-color: #014569;
+  --foreground-color: #fdfdfd;
+  --background-color: #fff7f2;
+  --highlight-color: #e8f3fb;
+  --primary-gradient: linear-gradient(#ff914d, #f25c54);
+  --secondary-background: #fff7f266;
+  --coral-color: #ff6b6b;
+  --coral-hover: #ff5252;
+  --text-gray: #374151;
+  --text-dark: #181d27;
+  --text-muted: #535862;
+  --border-gray: #0000004d;
+  --form-background: #f7f8fa;
+  --social-blue: #001f50;
+  --active-date-color: #29a603;
+}
+
+@theme inline {
+  --color-primary: var(--primary-color);
+  --color-gradient: linear-gradient(to bottom, #ff914d, #f25c54);
+  --color-highlight: var(--highlight-color);
+  --color-foreground: var(--foreground-color);
+  --font-raleway: var(--font-raleway);
+  --font-nunito: var(--font-nunito);
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #000000;
+    --primary: #014569;
+    --dark-orange: #f25c54;
+    --light-orange: #ff914d;
+    --color-primary: var(--primary);
+    --color-secondary: #fdf0d5;
+    --color-accent: #00b4d8;
+    --color-dark: #102542;
+    --color-deep: #001f50;
+    --color-gradient-start: #f25c54;
+    --color-gradient-end: #ff914d;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+  }
+}
+
+@layer utilities {
+  .bg-gradient {
+    background: linear-gradient(
+      to bottom,
+      var(--light-orange),
+      var(--dark-orange)
+    );
+  }
+
+  .bg-gradient:hover {
+    opacity: 0.8;
+  }
+}
+
+/* === TYPOGRAPHY STYLES === */
+
+/* Hero -  Raleway 32/auto */
+.hero-text {
+  font-family: var(--font-raleway);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 2%;
+}
+
+/* Heading 2 - Raleway 18/150 */
+.heading-2 {
+  font-family: var(--font-raleway);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+/* Heading 1 - Raleway 22/Auto */
+.heading-1 {
+  font-family: var(--font-raleway);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 2%;
+}
+
+/* Button - 16/150 */
+.btn-text {
+  font-family: var(--font-nunito);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+/* Body - 16/Auto */
+.body-text {
+  font-family: var(--font-nunito);
+  font-size: 16px;
+  font-weight: 400 !important;
+  line-height: normal;
+}
+
+
+/* Subheading - 18/150 */
+.subheading {
+  font-family: var(--font-nunito);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+/* Body 2 Semi Bold - 16/Auto */
+.body-2-semibold {
+  font-family: var(--font-nunito);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+/* Button CTA - 18/150 */
+.btn-cta {
+  font-family: var(--font-nunito);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+/* Body 3 Small - 13/150 */
+.body-3-small {
+  font-family: var(--font-nunito);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 125%;
+}
+
+/* === SCROLLBAR UTILITIES === */
+.scrollbar-hide,
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* === RANGE SLIDERS === */
+input[type="range"].custom-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+input[type="range"].custom-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 9999px;
+  background: white;
+  border: 2px solid #014569;
+  margin-top: -8px;
+  cursor: pointer;
+}
+
+input[type="range"].custom-slider::-webkit-slider-runnable-track {
+  height: 3px;
+  background-color: #014569;
+  border-radius: 9999px;
+}
+
+input[type="range"].custom-slider::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 9999px;
+  background: white;
+  border: 2px solid #014569;
+  cursor: pointer;
+}
+
+input[type="range"].custom-slider::-moz-range-track {
+  height: 3px;
+  background-color: #014569;
+  border-radius: 9999px;
+}
+
+.custom-range-slider {
+  -webkit-appearance: none;
+  position: absolute;
+  top: -8px;
+  height: 16px;
+  width: 100%;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.custom-range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid black;
+  cursor: pointer;
+  margin-top: -20px;
+  z-index: 10;
+}
+
+.custom-range-slider::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid #014569;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.slider-track {
+  position: absolute;
+  height: 3px;
+  background-color: #d1d5db;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  border-radius: 9999px;
+}
+
+.slider-range {
+  position: absolute;
+  height: 3px;
+  background-color: #014569;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  border-radius: 9999px;
+}
+/* === Calendar CSS Start === */
+
+.react-calendar--doubleView .react-calendar__viewContainer > * {
+  width: 50% !important;
+  margin: 0 !important;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer {
+  display: flex;
+  gap: 24px;
+}
+
+/* Hide built-in input box */
+.react-date-picker__wrapper,
+.react-daterange-picker__wrapper {
+  display: none !important;
+}
+
+/* Navigation Styling */
+.react-calendar__navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.react-calendar__navigation__label {
+  pointer-events: none;
+  user-select: none;
+  cursor: default;
+}
+
+.react-calendar__navigation__next2-button,
+.react-calendar__navigation__prev2-button {
+  display: none !important;
+}
+
+/* Hide stray rows (week numbers or extra grid) */
+.react-calendar__month-view__weekNumbers,
+.react-calendar__month-view__days + div {
+  display: none !important;
+}
+
+/* Calendar Container */
+.react-date-picker__calendar,
+.react-daterange-picker__calendar {
+  width: max-content !important;
+
+  .react-calendar {
+    background-color: var(--foreground-color) !important;
+    border-radius: 1rem;
+    font-family: Nunito, sans-serif !important;
+    min-width: 456px;
+    max-width: unset !important;
+    height: auto;
+    padding: 10px !important;
+
+    &.react-calendar--doubleView {
+      width: auto;
+    }
+
+    /* Grid container fix */
+    .react-calendar__month-view__days {
+      display: grid !important;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+      justify-content: center;
+    }
+
+    .react-calendar__tile {
+      width: 50px;
+      height: 50px; /* Increased height */
+      max-width: unset;
+      border-radius: 50%;
+      text-align: center;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      position: relative;
+    }
+
+    .react-calendar__tile abbr {
+      font-weight: bold;
+      font-size: 14px;
+      display: block;
+      line-height: 1;
+    }
+
+    /* Reserve space for price content always */
+    .react-calendar__tile > div {
+      font-size: 10px;
+      line-height: 1;
+      height: 10px; /* <-- This ensures space even when no price is shown */
+    }
+
+    .react-calendar__tile--now {
+      background-color: var(--foreground-color);
+    }
+
+    .react-calendar__tile--active,
+    .react-calendar__tile--hasActive {
+      color: black;
+      background-color: rgba(from var(--active-date-color) r g b / 15%);
+    }
+
+    .react-calendar__navigation__arrow {
+      display: grid;
+      place-items: center;
+    }
+
+    .react-calendar__month-view__weekdays__weekday abbr {
+      text-decoration: none;
+    }
+  }
+}
+
+/* Calendar position fix on mobile */
+.react-daterange-picker__calendar--open {
+  position: relative !important;
+  padding: 4px;
+}
+
+@media screen and (max-width: 1200px) {
+  .react-date-picker__calendar,
+  .react-daterange-picker__calendar {
+    left: 0;
+
+    .react-calendar {
+      min-width: 100vw !important;
+    }
+  }
+}
+
+.react-calendar__month-view__days .neighboring-month:nth-last-child(-n + 7) {
+  visibility: hidden !important;
+  pointer-events: none !important;
+  color: transparent !important;
+  background: transparent !important;
+}
+.react-calendar__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  margin-bottom: 8px;
+}
+
+.react-calendar__navigation__label {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  gap: 32px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.react-calendar__navigation__label__labelText--from,
+.react-calendar__navigation__label__labelText--to {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Hide the divider if needed */
+.react-calendar__navigation__label__divider {
+  display: none;
+}
+
+.react-calendar__navigation__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  width: 24px;
+  height: 37px;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  color: black;
+}
+.react-calendar__navigation button {
+  min-width: 39px !important;
+}
+
+.react-calendar__navigation__next2-button,
+.react-calendar__navigation__prev2-button {
+  display: none !important;
+}
+
+/* === Calendar CSS End === */
+
+/* === COMMON COMPONENTS === */
+.expand-icon,
+.collapse-button svg {
+  transition: transform 0.2s ease;
+}
+
+.collapse-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  transition: all 0.2s ease;
+}
+
+.collapse-button:hover {
+  opacity: 0.7;
+  transform: scale(1.1);
+}
+
+.icon-container {
+  width: 48px;
+  height: 48px;
+  background: #d7e7ff;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-title {
+  font-family: var(--font-nunito);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 150%;
+  color: #000;
+}
+
+.continue-button {
+  display: flex;
+  padding: 12px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  background: linear-gradient(0deg, #f25c54 0%, #ff914d 100%);
+  border: none;
+  color: #fff;
+  font-family: var(--font-nunito);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 150%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.continue-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 145, 77, 0.3);
+}
+
+.continue-button:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.continue-button span {
+  font-family: var(--font-nunito);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 150%;
+  color: #fff;
+}
+
+/* === PASSENGER INFORMATION === */
+.passenger-info-collapsed,
+.passenger-info-expanded {
+  background: white;
+  border: 1.5px solid rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.passenger-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.passenger-info-header:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.passenger-info-header.expanded {
+  cursor: default;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.expand-icon {
+  transition: transform 0.3s ease;
+}
+
+.passenger-info-content {
+  padding: 0 40px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.info-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 0.4px solid rgba(1, 59, 149, 0.6);
+  background: #fff;
+}
+
+.info-icon {
+  width: 48px;
+  height: 48px;
+  background: #014569;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: var(--font-roboto);
+  font-size: 20px;
+  font-weight: 400;
+  flex-shrink: 0;
+}
+
+.info-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-nunito);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 150%;
+  color: #000;
+}
+
+.read-more-btn {
+  background: none;
+  border: none;
+  color: #00b4d8;
+  font-family: var(--font-nunito);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 4px;
+}
+
+/* === PASSENGER FORMS === */
+.passengers-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.passenger-form-section {
+  display: flex;
+  flex-direction: column;
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.passenger-title,
+.section-title {
+  font-family: var(--font-nunito);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 150%;
+  color: #000;
+  margin: 0;
+}
+
+.passenger-form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 5px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  max-height: 2000px;
+  opacity: 1;
+}
+
+.form-row,
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.title-dropdown,
+.country-code-dropdown {
+  position: relative;
+  width: 112px;
+}
+
+.form-select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background: #fff;
+  font-family: var(--font-nunito);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 150%;
+  color: #000;
+  opacity: 0.8;
+  appearance: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.form-select:hover {
+  border-color: rgba(1, 69, 105, 0.3);
+  box-shadow: 0 2px 8px rgba(1, 69, 105, 0.1);
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: #014569;
+  box-shadow: 0 0 0 3px rgba(1, 69, 105, 0.1);
+  transform: translateY(-1px);
+}
+
+.dropdown-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.name-input-group {
+  position: relative;
+  flex: 1;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background: #fff;
+  font-family: var(--font-nunito);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 150%;
+  color: #000;
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+.form-input:hover {
+  border-color: rgba(1, 69, 105, 0.3);
+  box-shadow: 0 2px 8px rgba(1, 69, 105, 0.1);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #014569;
+  box-shadow: 0 4px 12px rgba(1, 69, 105, 0.15);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.form-input::placeholder {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.clear-input-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}
+
+.clear-input-btn:hover {
+  opacity: 1;
+  background-color: rgba(220, 53, 69, 0.1);
+  border-radius: 50%;
+}
+
+.date-of-birth-container {
+  position: relative;
+  width: 266px;
+}
+
+.date-input {
+  padding-right: 44px;
+}
+
+.calendar-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.passport-input,
+.flyer-input {
+  width: 340px;
+  height: 49px;
+  padding: 16px 27px;
+}
+
+.contact-input {
+  width: 240px;
+}
+
+/* === EXPANDABLE SECTIONS === */
+.expandable-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.expandable-toggle {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  transition: opacity 0.2s ease;
+}
+
+.expandable-toggle:hover {
+  opacity: 0.8;
+}
+
+.expandable-toggle:hover .toggle-icon {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.expandable-toggle:active {
+  transform: scale(0.98);
+}
+
+.toggle-icon {
+  opacity: 0.8;
+  transition: transform 0.3s ease;
+}
+
+.toggle-icon.expanded {
+  transform: rotate(45deg);
+}
+
+.expandable-toggle span {
+  font-family: var(--font-roboto);
+  font-size: 18px;
+  font-weight: 400;
+  color: #000;
+  opacity: 0.8;
+}
+
+.expanded-content {
+  margin-left: 39px;
+  animation: slideDown 0.3s ease-out;
+}
+
+/* === PASSENGER MANAGEMENT === */
+.passenger-management {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.add-passenger-controls {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.add-passenger-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: #014569;
+  font-family: var(--font-nunito);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.add-passenger-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.add-passenger-btn:hover::before {
+  left: 100%;
+}
+
+.add-passenger-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(1, 69, 105, 0.15);
+  border-color: #014569;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.add-passenger-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.add-passenger-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.add-passenger-btn:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.add-passenger-btn.adult {
+  border-left: 4px solid #28a745;
+}
+
+.add-passenger-btn.child {
+  border-left: 4px solid #ffc107;
+}
+
+.add-passenger-btn.infant {
+  border-left: 4px solid #17a2b8;
+}
+
+.passenger-header {
+  margin-bottom: 12px;
+}
+
+.passenger-header-button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 16px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.passenger-header-button:hover {
+  background-color: rgba(1, 69, 105, 0.03);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(1, 69, 105, 0.08);
+}
+
+.passenger-header-button.collapsed {
+  opacity: 0.7;
+}
+
+.passenger-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.remove-passenger-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: #dc3545;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.remove-passenger-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+.remove-passenger-btn:active {
+  transform: scale(0.95);
+}
+
+.collapse-icon {
+  transition: transform 0.3s ease;
+  color: #6b7280;
+}
+
+.collapse-icon.collapsed {
+  transform: rotate(180deg);
+}
+
+/* === CONTACT SECTION === */
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.newsletter-subscription {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 12px 0;
+}
+
+.subscription-checkbox {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.subscription-text {
+  font-family: var(--font-nunito);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 150%;
+  color: #000;
+  max-width: 575px;
+}
+
+/* === ANIMATIONS === */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    max-height: 200px;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* === FOCUS STATES FOR ACCESSIBILITY === */
+.add-passenger-btn:focus,
+.passenger-header-button:focus,
+.remove-passenger-btn:focus,
+.expandable-toggle:focus {
+  outline: 2px solid #014569;
+  outline-offset: 2px;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 1024px) {
+  .passenger-info-content {
+    padding: 0 24px 24px 24px;
+    gap: 32px;
+  }
+
+  .form-row,
+  .contact-row {
+    flex-wrap: wrap;
+  }
+
+  .date-of-birth-container,
+  .passport-input,
+  .flyer-input,
+  .contact-input {
+    width: 100%;
+  }
+
+  .title-dropdown,
+  .country-code-dropdown {
+    width: 120px;
+  }
+
+  .add-passenger-controls {
+    justify-content: center;
+  }
+
+  .add-passenger-btn {
+    flex: 1;
+    min-width: 150px;
+    justify-content: center;
+  }
+
+  .passenger-header-button {
+    padding: 12px;
+  }
+
+  .remove-passenger-btn {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .passenger-info-header {
+    padding: 16px;
+  }
+
+  .passenger-info-content {
+    padding: 0 16px 16px 16px;
+    gap: 24px;
+  }
+
+  .passengers-section {
+    gap: 20px;
+  }
+
+  .header-content {
+    gap: 12px;
+  }
+
+  .icon-container {
+    width: 40px;
+    height: 40px;
+  }
+
+  .header-title {
+    font-size: 18px;
+  }
+
+  .form-row,
+  .contact-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .title-dropdown,
+  .country-code-dropdown {
+    width: 100%;
+  }
+
+  .expanded-content {
+    margin-left: 0;
+  }
+
+  .add-passenger-controls {
+    flex-direction: column;
+  }
+
+  .add-passenger-btn {
+    width: 100%;
+    padding: 16px 24px;
+  }
+
+  .passenger-header-actions {
+    gap: 8px;
+  }
+
+  .passenger-management {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-title {
+    font-size: 18px;
+  }
+
+  .icon-container {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* === THIRD-PARTY INTEGRATIONS === */
+@import "react-phone-input-2/lib/style.css";
