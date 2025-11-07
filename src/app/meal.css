@@ -1,0 +1,229 @@
+/* Meal Selection Styles */
+
+.meal-selection-segments {
+  border: 1px solid #f25c54;
+  border-radius: 12px;
+  padding: 4px;
+  display: flex;
+}
+
+.meal-selection-segment-tab {
+  flex: 1;
+  padding: 5px 0px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.meal-selection-segment-active {
+  background-color: #f25c54;
+  color: white;
+}
+
+.meal-selection-segment-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 700;
+  font-family: "Nunito", sans-serif;
+}
+
+.meal-selection-passengers {
+  display: flex;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.meal-selection-passenger-tab {
+  flex: 1;
+  padding: 5px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.meal-selection-passenger-active {
+  border-bottom: 2px solid black;
+  margin-bottom: -2px;
+}
+
+.meal-selection-passenger-name {
+  font-weight: 700;
+  font-size: 16px;
+  font-family: "Nunito", sans-serif;
+  color: black;
+}
+
+.meal-selection-passenger-summary {
+  font-weight: 500;
+  font-size: 14px;
+  font-family: "Nunito", sans-serif;
+  color: #666;
+  margin-top: 4px;
+}
+
+.meal-selection-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.meal-selection-option {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 5px 20px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: all 0.2s ease;
+}
+
+.meal-selection-option:hover {
+  border-color: #f25c54;
+  box-shadow: 0 2px 8px rgba(242, 92, 84, 0.1);
+}
+
+.meal-selection-option-content {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.meal-selection-option-info {
+  flex: 1;
+}
+
+.meal-selection-option-name {
+  font-weight: 500;
+  font-size: 16px;
+  font-family: "Nunito", sans-serif;
+  color: black;
+  margin-bottom: 8px;
+}
+
+.meal-selection-option-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.meal-selection-option-price {
+  font-weight: 700;
+  font-size: 20px;
+  font-family: "Nunito", sans-serif;
+  color: black;
+}
+
+.meal-selection-quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1.5px solid #f25c54;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.meal-selection-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid #f0f0f0;
+  margin-top: 20px;
+}
+
+.meal-selection-total {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 18px;
+  font-family: "Nunito", sans-serif;
+  color: black;
+}
+
+.meal-selection-total-amount {
+  font-weight: 800;
+}
+
+.meal-selection-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Nunito", sans-serif;
+}
+
+.meal-selection-back-btn {
+  border: 1.5px solid #f25c54;
+  background: none;
+  color: #f25c54;
+  padding: 8px 40px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.meal-selection-back-btn:hover {
+  background-color: #f25c54;
+  color: white;
+}
+
+.meal-selection-continue-btn {
+  background: linear-gradient(to bottom, #ff914d, #f25c54);
+  color: white;
+  border: none;
+  padding: 8px 40px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.meal-selection-continue-btn:hover {
+  opacity: 0.9;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .meal-selection-segments {
+    width: 100%;
+  }
+
+  .meal-selection-option {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+  }
+
+  .meal-selection-option-content {
+    width: 100%;
+  }
+
+  .meal-selection-option-controls {
+    align-items: flex-start;
+  }
+
+  .meal-selection-footer {
+    flex-direction: column;
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .meal-selection-actions {
+    gap: 16px;
+  }
+
+  .meal-selection-back-btn,
+  .meal-selection-continue-btn {
+    flex: 1;
+    text-align: center;
+  }
+}

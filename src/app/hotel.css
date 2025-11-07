@@ -1,0 +1,499 @@
+.react-calendar__navigation button:disabled {
+  background-color: transparent !important;
+  cursor: default !important;
+  opacity: 0.4;
+}
+
+.react-calendar__navigation button:disabled:hover {
+  background-color: transparent !important;
+}
+
+/* Ensure calendar doesn't override map view */
+.daterange-picker,
+.single-date-picker {
+  z-index: 999 !important;
+  position: absolute !important;
+  top: 99% !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: auto !important;
+}
+
+/* Ensure map view stays below calendar but above other content */
+.map-view-container {
+  z-index: 1 !important;
+  position: relative;
+}
+
+/* Search summary container z-index */
+.search-summary-container {
+  z-index: 15 !important;
+  position: relative;
+}
+
+/* Calendar positioning and layering */
+:is(.react-date-picker__calendar, .react-daterange-picker__calendar)
+  .react-calendar {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+/* Consistent positioning for calendar containers */
+.react-date-picker__calendar {
+  position: static !important;
+  width: 100% !important;
+}
+
+.react-daterange-picker__calendar {
+  position: static !important;
+  width: 100% !important;
+}
+
+/* Fix calendar wrapper styling */
+.react-date-picker__wrapper,
+.react-daterange-picker__wrapper {
+  border: none !important;
+  padding: 0 !important;
+}
+
+/* Hide days from other months */
+.react-calendar__month-view__days__day--neighboringMonth {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  background-color: transparent !important;
+  position: relative !important;
+  z-index: -1 !important;
+}
+
+/* Fix range selection with neighboring months */
+.react-calendar__tile--rangeBetween.react-calendar__month-view__days__day--neighboringMonth {
+  background-color: transparent !important;
+  border-radius: 0 !important;
+}
+
+/* Add clear cutoffs for month boundaries */
+.react-calendar__month-view {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 8px !important;
+}
+
+/* Ensure last row of the calendar is handled properly */
+.react-calendar__month-view__days {
+  row-gap: 2px !important;
+}
+
+/* Fix range display across months */
+.react-calendar__tile--rangeEnd:not(
+    .react-calendar__month-view__days__day--neighboringMonth
+  ),
+.react-calendar__tile--rangeStart:not(
+    .react-calendar__month-view__days__day--neighboringMonth
+  ) {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+:is(.react-date-picker__calendar, .react-daterange-picker__calendar)
+  .react-calendar
+  .react-calendar__tile--hasActive {
+  color: #000;
+  background-color: #0145695b !important;
+}
+
+:is(.react-date-picker__calendar, .react-daterange-picker__calendar)
+  .react-calendar
+  button:hover {
+  background-color: #0145693b !important;
+}
+
+:is(.react-date-picker__calendar, .react-daterange-picker__calendar)
+  .react-calendar
+  .react-calendar__tile--active {
+  background-color: #0145695b !important;
+}
+
+/* Fix alignment between calendar months */
+.react-calendar.react-calendar--selectRange {
+  border-spacing: 0 !important;
+}
+
+/* Ensure date range is properly contained within calendar view */
+.react-daterange-picker__calendar .react-calendar {
+  margin: 0 auto !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+/* Style each month separately in double view */
+.react-calendar__viewContainer {
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+.react-calendar__viewContainer > div {
+  flex: 1 !important;
+  padding: 0 8px !important;
+  position: relative !important;
+}
+
+/* Handle boundaries between two calendar months */
+.daterange-picker
+  .react-calendar.react-calendar--selectRange
+  .react-calendar__viewContainer
+  > div:first-child {
+  padding-right: 12px !important;
+}
+
+.daterange-picker
+  .react-calendar.react-calendar--selectRange
+  .react-calendar__viewContainer
+  > div:last-child {
+  padding-left: 12px !important;
+}
+
+/* Fix month separation in double view */
+.react-calendar__month-view:first-child {
+  border-right: 1px solid #eaeaea !important;
+  padding-right: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.react-calendar__month-view:last-child {
+  padding-left: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+/* Improve month view layout */
+.react-calendar__month-view {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.react-calendar__month-view__days {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+}
+
+/* Properly style the range selection */
+.react-calendar__tile--rangeStart,
+.react-calendar__tile--rangeEnd {
+  background-color: #014569 !important;
+  color: white !important;
+  border-radius: 50% !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.react-calendar__tile--rangeStart .text-center,
+.react-calendar__tile--rangeEnd .text-center {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.react-calendar__tile--rangeBetween {
+  background-color: rgba(1, 69, 105, 0.2) !important;
+  border-radius: 0 !important;
+  position: relative !important;
+}
+
+/* Make all date tiles circular */
+.react-calendar__tile {
+  border-radius: 50% !important;
+  aspect-ratio: 1/1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  padding: 0 !important;
+
+  position: relative !important;
+}
+
+/* Ensure content is centered within the circular tiles */
+.react-calendar__tile abbr {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: auto !important;
+  padding-top: 10px !important;
+  font-size: 14px !important;
+}
+
+/* Add hover effect to make it more interactive */
+.react-calendar__tile:hover:not(.react-calendar__tile--active):not(
+    .react-calendar__tile--rangeBetween
+  ) {
+  background-color: rgba(1, 69, 105, 0.1) !important;
+}
+
+/* Style for fare price display */
+.react-calendar__tile .text-center {
+  font-size: 9px !important;
+}
+
+/* Additional styling for custom datepicker */
+.datepicker-custom-wrapper {
+  width: 100% !important;
+}
+
+/* Force consistent positioning for both calendar types */
+.react-date-picker,
+.react-daterange-picker {
+  width: 100% !important;
+}
+
+/* Make sure popups are positioned consistently */
+.daterange-picker .react-daterange-picker__calendar,
+.single-date-picker .react-date-picker__calendar {
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+}
+
+/* Style for fare text */
+.react-calendar__tile .text-center {
+  line-height: 1 !important;
+  position: absolute !important;
+  bottom: 4px !important;
+  left: 0 !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+/* Keep the between dates with square backgrounds */
+.react-calendar__tile--rangeBetween:not(.react-calendar__tile--rangeStart):not(
+    .react-calendar__tile--rangeEnd
+  ) {
+  border-radius: 0 !important;
+}
+
+/* Fix range display for last day of month */
+.react-calendar__month-view:last-child .react-calendar__tile--rangeStart,
+.react-calendar__month-view:first-child .react-calendar__tile--rangeEnd {
+  z-index: 2 !important;
+}
+
+/* Fix range display between months */
+.react-calendar__month-view:last-child
+  .react-calendar__month-view__days
+  > :first-child,
+.react-calendar__month-view:first-child
+  .react-calendar__month-view__days
+  > :last-child {
+  border-radius: 0 !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .daterange-picker
+    :is(.react-date-picker__calendar, .react-daterange-picker__calendar)
+    .react-calendar {
+    min-width: 70vw !important;
+  }
+
+  .daterange-picker
+    :is(.react-date-picker__calendar, .react-daterange-picker__calendar)
+    .react-calendar__month-view__days {
+    padding-left: 4px !important;
+  }
+
+  .daterange-picker {
+    left: 50% !important;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .daterange-picker
+    :is(.react-date-picker__calendar, .react-daterange-picker__calendar)
+    .react-calendar {
+    min-width: 350px !important;
+  }
+
+  .css-16jgt8u-placeholder {
+    font-size: 14px !important;
+  }
+
+  /* Keep consistent tile size across all breakpoints */
+  .daterange-picker
+    :is(.react-date-picker__calendar, .react-daterange-picker__calendar)
+    .react-calendar__tile {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .daterange-picker {
+    transform: translateX(-42.3%) !important;
+  }
+
+  .search-summary-container .daterange-picker .react-calendar {
+    transform: translateX(6%) !important;
+  }
+}
+
+.daterange-picker
+  .react-calendar__tile:hover:not(.react-calendar__tile--active):not(
+    .react-calendar__tile--rangeBetween
+  ) {
+  background-color: #0145693b !important;
+}
+
+@media screen and (max-width: 767px) {
+  .daterange-picker
+    :is(.react-date-picker__calendar, .react-daterange-picker__calendar)
+    .react-calendar {
+    min-width: 300px !important;
+  }
+
+  .daterange-picker .react-calendar {
+    width: 300px !important;
+  }
+
+  .daterange-picker
+    :is(.react-date-picker__calendar, .react-daterange-picker__calendar)
+    .react-calendar__tile {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .daterange-picker {
+    transform: translateX(-25.6%) !important;
+  }
+
+  .search-summary-container .daterange-picker .react-calendar {
+    transform: translateX(-64%) !important;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .single-date-picker
+    :is(.react-date-picker__calendar, .react-daterange-picker__calendar)
+    .react-calendar {
+    min-width: 40vw !important;
+  }
+
+  .single-date-picker .react-calendar {
+    width: auto !important;
+  }
+
+  .single-date-picker {
+    transform: translateX(-60.3%) !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .single-date-picker {
+    transform: translateX(-15.3%) !important;
+  }
+
+  .react-date-picker__calendar {
+    position: relative !important;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .single-date-picker .react-calendar {
+    width: 360px !important;
+  }
+
+  .single-date-picker {
+    transform: translateX(-11.3%) !important;
+  }
+
+  .single-date-picker
+    :is(.react-date-picker__calendar, .react-daterange-picker__calendar)
+    .react-calendar__tile {
+    width: 42px !important;
+    height: 42px !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .single-date-picker .react-calendar {
+    width: 320px !important;
+  }
+
+  .single-date-picker {
+    transform: translateX(-5.7%) !important;
+  }
+
+  .single-date-picker
+    :is(.react-date-picker__calendar, .react-daterange-picker__calendar)
+    .react-calendar__tile {
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+
+.no-scroll {
+  overflow: hidden !important;
+}
+
+@media screen and (max-width: 375px) {
+  .search-summary-container .daterange-picker .react-calendar {
+    transform: translateX(-0.3%) !important;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .search-summary-container .daterange-picker .react-calendar {
+    transform: translateX(-9%) !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .search-summary-container .daterange-picker .react-calendar {
+    transform: translateX(-32%) !important;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .search-summary-container .daterange-picker .react-calendar {
+    transform: translateX(-49%) !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .search-summary-container .daterange-picker .react-calendar {
+    transform: translateX(18%) !important;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .search-summary-container .daterange-picker .react-calendar {
+    transform: translateX(-1.1%) !important;
+  }
+}
+
+.custom-datepicker-wrapper .react-date-picker__calendar {
+  z-index: 9999 !important;
+}
+
+.react-date-picker__calendar,
+.react-calendar {
+  z-index: 9999 !important;
+}
+
+.location-select__menu {
+  z-index: 9999 !important;
+  position: absolute !important;
+}
+
+.location-select__menu-portal {
+  z-index: 9999 !important;
+  position: absolute !important;
+}
+
+.react-calendar__tile--rangeStart,
+.react-calendar__tile--rangeEnd,
+.react-calendar__tile--range {
+  color: rgb(255, 255, 255) !important;
+}
+
+html.no-scroll,
+body.no-scroll,
+#__next.no-scroll {
+  overflow: hidden !important;
+  height: 100vh;
+}
